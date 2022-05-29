@@ -1,0 +1,193 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="700"
+             Width="800" Height="700"
+             x:Class="curs.Views.DataView"
+			 Background="#f7a418">
+
+	<Grid ColumnDefinitions="800,*" RowDefinitions="20*,*">
+		<TabControl Grid.Column="0" Grid.Row="0">
+			<TabItem  Header="Player" VerticalContentAlignment="Center">
+				<Grid RowDefinitions="20*,*">
+					<Grid Grid.Row="0">
+						<DataGrid Name="Players_data"  CanUserReorderColumns="True" CanUserResizeColumns="True" CanUserSortColumns="True" BorderBrush="Black" Background="BlanchedAlmond" Items="{Binding $parent[Window].DataContext.Players}" AutoGenerateColumns="False">
+							<DataGrid.Columns>
+								<DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+								<DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+								<DataGridTextColumn Header="Number" Binding="{Binding Number}"/>
+								<DataGridTextColumn Header="Team" Binding="{Binding TeamId}"/>
+								<DataGridTextColumn Header="Position" Binding="{Binding Position}"/>
+								<DataGridTemplateColumn Header="Delete">
+									<DataTemplate>
+										<Button CommandParameter="{Binding}" Command="{Binding $parent[Window].DataContext.DeletePlayer}" Grid.Row="2" Name="Player" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+											Delete
+										</Button>
+									</DataTemplate>
+								</DataGridTemplateColumn>
+							</DataGrid.Columns>
+						</DataGrid>
+					</Grid>
+					<Button Grid.Row="1"  Command="{Binding $parent[Window].DataContext.CreatePlayer}"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+						New record
+					</Button>
+				</Grid>
+			</TabItem>
+
+
+			<TabItem  Header="Game" VerticalContentAlignment="Center">
+				<Grid RowDefinitions="20*,*">
+					<Grid Grid.Row="0">
+						<DataGrid Name="Game_data"  CanUserReorderColumns="True" CanUserResizeColumns="True" CanUserSortColumns="True" BorderBrush="Black" Background="BlanchedAlmond" Items="{Binding $parent[Window].DataContext.Games}" AutoGenerateColumns="False">
+							<DataGrid.Columns>
+								<DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+								<DataGridTextColumn Header="GameN" Binding="{Binding GameN}"/>
+								<DataGridTextColumn Header="Date" Binding="{Binding Date}"/>
+								<DataGridTextColumn Header="Time" Binding="{Binding Time}"/>
+								<DataGridTemplateColumn Header="Delete">
+									<DataTemplate>
+										<Button CommandParameter="{Binding}" Command="{Binding $parent[Window].DataContext.DeleteGame}" Grid.Row="2" Name="Player" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+											Delete
+										</Button>
+									</DataTemplate>
+								</DataGridTemplateColumn>
+							</DataGrid.Columns>
+						</DataGrid>
+					</Grid>
+					<Button Grid.Row="1"  Command="{Binding $parent[Window].DataContext.CreateGame}"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+						New record
+					</Button>
+				</Grid>
+			</TabItem>
+
+
+			<TabItem  Header="League" VerticalContentAlignment="Center">
+				<Grid RowDefinitions="20*,*">
+					<Grid Grid.Row="0">
+						<DataGrid Name="League_data"  CanUserReorderColumns="True" CanUserResizeColumns="True" CanUserSortColumns="True" BorderBrush="Black" Background="BlanchedAlmond" Items="{Binding $parent[Window].DataContext.Leagues}" AutoGenerateColumns="False">
+							<DataGrid.Columns>
+								<DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+								<DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+								<DataGridTextColumn Header="Region" Binding="{Binding Region}"/>
+								<DataGridTemplateColumn Header="Delete">
+									<DataTemplate>
+										<Button CommandParameter="{Binding}" Command="{Binding $parent[Window].DataContext.DeleteLeague}" Grid.Row="2" Name="Player" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+											Delete
+										</Button>
+									</DataTemplate>
+								</DataGridTemplateColumn>
+							</DataGrid.Columns>
+						</DataGrid>
+					</Grid>
+					<Button Grid.Row="1"  Command="{Binding $parent[Window].DataContext.CreateLeague}"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+						New record
+					</Button>
+				</Grid>
+			</TabItem>
+
+			<TabItem  Header="Statistics" VerticalContentAlignment="Center">
+				<Grid RowDefinitions="20*,*">
+					<Grid Grid.Row="0">
+						<DataGrid Name="Stats"  CanUserReorderColumns="True" CanUserResizeColumns="True" CanUserSortColumns="True" BorderBrush="Black" Background="BlanchedAlmond" Items="{Binding $parent[Window].DataContext.Stats}" AutoGenerateColumns="False">
+							<DataGrid.Columns>
+								<DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+								<DataGridTextColumn Header="GameN" Binding="{Binding GameId}"/>
+								<DataGridTextColumn Header="Team1" Binding="{Binding Team1Id}"/>
+								<DataGridTextColumn Header="Score_Team1" Binding="{Binding Score_team1}"/>
+								<DataGridTextColumn Header="Assists_Team1" Binding="{Binding Assists_team1}"/>
+								<DataGridTextColumn Header="Plus/minus_Team1" Binding="{Binding Plus_minus_team1}"/>
+								<DataGridTextColumn Header="Penalties_Team1" Binding="{Binding Penalties_team1}"/>
+								<DataGridTextColumn Header="Team2" Binding="{Binding Team2Id}"/>
+								<DataGridTextColumn Header="Score_Team2" Binding="{Binding Score_team2}"/>
+								<DataGridTextColumn Header="Assists_Team2" Binding="{Binding Assists_team2}"/>
+								<DataGridTextColumn Header="Plus/minus_Team2" Binding="{Binding Plus_minus_team2}"/>
+								<DataGridTextColumn Header="Penalties_Team2" Binding="{Binding Penalties_team2}"/>
+								<DataGridTemplateColumn Header="Delete">
+									<DataTemplate>
+										<Button CommandParameter="{Binding}" Command="{Binding $parent[Window].DataContext.DeleteStatistics}" Grid.Row="2" Name="Player" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+											Delete
+										</Button>
+									</DataTemplate>
+								</DataGridTemplateColumn>
+							</DataGrid.Columns>
+						</DataGrid>
+					</Grid>
+					<Button Grid.Row="1"  Command="{Binding $parent[Window].DataContext.CreateStatistics}"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+						New Record
+					</Button>
+				</Grid>
+			</TabItem>
+
+			<TabItem  Header="Shot" VerticalContentAlignment="Center">
+				<Grid RowDefinitions="20*,*">
+					<Grid Grid.Row="0">
+						<DataGrid Name="Shots"  CanUserReorderColumns="True" CanUserResizeColumns="True" CanUserSortColumns="True" BorderBrush="Black" Background="BlanchedAlmond" Items="{Binding $parent[Window].DataContext.Shots}" AutoGenerateColumns="False">
+							<DataGrid.Columns>
+								<DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+								<DataGridTextColumn Header="Time" Binding="{Binding Time}"/>
+								<DataGridTextColumn Header="Scorer" Binding="{Binding ScorerId}"/>
+								<DataGridTextColumn Header="Type" Binding="{Binding Type}"/>
+								<DataGridTextColumn Header="Distance" Binding="{Binding Distance}"/>
+								<DataGridTextColumn Header="GameN" Binding="{Binding GameId}"/>
+								<DataGridTemplateColumn Header="Delete">
+									<DataTemplate>
+										<Button CommandParameter="{Binding}" Command="{Binding $parent[Window].DataContext.DeleteShot}" Grid.Row="2" Name="Player" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+											Delete
+										</Button>
+									</DataTemplate>
+								</DataGridTemplateColumn>
+							</DataGrid.Columns>
+						</DataGrid>
+					</Grid>
+					<Button Grid.Row="1"  Command="{Binding $parent[Window].DataContext.CreateShot}"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+						New Record
+					</Button>
+				</Grid>
+			</TabItem>
+
+			<TabItem  Header="Team" VerticalContentAlignment="Center">
+				<Grid RowDefinitions="20*,*">
+					<Grid Grid.Row="0">
+						<DataGrid Name="Places"  CanUserReorderColumns="True" CanUserResizeColumns="True" CanUserSortColumns="True" BorderBrush="Black" Background="BlanchedAlmond" Items="{Binding $parent[Window].DataContext.Teams}" AutoGenerateColumns="False">
+							<DataGrid.Columns>
+								<DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+								<DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+								<DataGridTextColumn Header="League" Binding="{Binding LeagueId}"/>
+
+								<DataGridTemplateColumn Header="Delete">
+									<DataTemplate>
+										<Button CommandParameter="{Binding}" Command="{Binding $parent[Window].DataContext.DeleteTeam}" Grid.Row="2" Name="Player" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+											Delete
+										</Button>
+									</DataTemplate>
+								</DataGridTemplateColumn>
+							</DataGrid.Columns>
+						</DataGrid>
+					</Grid>
+					<Button Grid.Row="1"  Command="{Binding $parent[Window].DataContext.CreateTeam}"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+						New Record
+					</Button>
+				</Grid>
+			</TabItem>
+
+
+		</TabControl>
+		<TabControl  Grid.Column="1" Grid.Row="0" Items="{Binding $parent[Window].DataContext.Items}">
+			<TabControl.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding Name}" />
+				</DataTemplate>
+			</TabControl.ItemTemplate>
+			<TabControl.ContentTemplate>
+				<DataTemplate>
+					<DockPanel LastChildFill="True">
+					</DockPanel>
+				</DataTemplate>
+			</TabControl.ContentTemplate>
+		</TabControl>
+		<Button Command="{Binding $parent[Window].DataContext.SQLRequestOpen}" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+			New request
+		</Button>
+	</Grid>
+</UserControl>
